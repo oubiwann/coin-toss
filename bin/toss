@@ -1,5 +1,18 @@
 #!/usr/bin/env python3
+import argparse
+
 from cointoss import coin
 
 
-coin.toss()
+parser = argparse.ArgumentParser()
+parser.add_argument("seed", help="a random seed to provide reproducability")
+parser.add_argument(
+    "choices",
+    help=("a comma-separated list of items for which you are flipping the coin"
+          " (no spaces)"))
+parser.add_argument(
+    "-w", "--winner-count", default=1, type=int,
+   help="the number of allowed winners")
+args = parser.parse_args()
+winners = coin.toss(args.seed, args.choices.split(","), args.winner_count)
+print(winners)
