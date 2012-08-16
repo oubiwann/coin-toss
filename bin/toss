@@ -13,6 +13,10 @@ parser.add_argument(
 parser.add_argument(
     "-w", "--winner-count", default=1, type=int,
    help="the number of allowed winners")
+
+
 args = parser.parse_args()
 winners = coin.toss(args.seed, args.choices.split(","), args.winner_count)
+
+
 print(winners)
