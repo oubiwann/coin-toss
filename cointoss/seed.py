@@ -1,6 +1,7 @@
 from datetime import datetime
 import hashlib
 import random
+import uuid
 
 
 def get_date_seed():
@@ -21,3 +22,9 @@ def make_hashed_seed(data, hash_type="sha512"):
     """
     hasher = getattr(hashlib, hash_type)
     return hasher(data.encode("utf-8")).hexdigest()
+
+
+def get_super_seed():
+    hashed = make_hashed_seed(
+        get_date_seed() + str(get_random_seed()), hash_type="md5")
+    return uuid.UUID(hashed)
