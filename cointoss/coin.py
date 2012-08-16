@@ -1,7 +1,9 @@
 import random
 
 
-r = random.Random(seed)
-for check in xrange(1000000):
-    print(r.choice(["Alice", "Bob"]))
-print(seed)
+def toss(seed, choices, winner_count=1):
+    choices_len = len(choices)
+    if winner_count > choices_len:
+        winner_count = choices_len
+    r = random.Random(seed)
+    return sorted(r.sample(sorted(choices), winner_count))
