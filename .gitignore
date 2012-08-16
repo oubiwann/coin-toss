@@ -25,3 +25,6 @@ _trial_temp
 
 #Mr Developer
 .mr.developer.cfg
+
+#Vim
+*.sw[po]
