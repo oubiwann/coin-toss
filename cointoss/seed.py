@@ -8,7 +8,10 @@ def get_date_seed():
 
 
 def get_random_seed(bits=64):
-    random.getrandbits(bits)
+    """
+    Return a random long int with the provided bit length.
+    """
+    return random.getrandbits(bits)
 
 
 def make_hashed_seed(data, hash_type="sha512"):
@@ -17,4 +20,4 @@ def make_hashed_seed(data, hash_type="sha512"):
         'md5','sha1', 'sha224', 'sha256', 'sha384', 'sha512'
     """
     hasher = getattr(hashlib, hash_type)
-    return hasher(data).hexdigest()
+    return hasher(data.encode("utf-8")).hexdigest()
