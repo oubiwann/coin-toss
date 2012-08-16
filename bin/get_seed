@@ -1,5 +1,59 @@
 #!/usr/bin/env python3
+import argparse
+
 from cointoss import seed
 
 
-print(seed.get_super_seed())
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    "-d", "--data", action="append", help=(
+        "data to use as the basis for generating a seed; this parameter "
+        "can be used multiple times (values will be concatenated)"))
+parser.add_argument(
+    "-t", "--type", help=(
+        "the type of seed to generate; valid options are 'date' "
+        "'random', 'hashed', and 'super'"))
+parser.add_argument(
+    "--hash-type", help=(
+        "the hash type to use when generating a hash-based seed; "
+        "valid options are 'md5','sha1', 'sha224', 'sha256', "
+        "'sha384', 'sha512'"))
+parser.add_argument(
+    "--bits", help=(
+        "the number of bits to use when generating a seed of type 'random'"))
+parser.add_argument(
+    "--as-uuid", action="store_true",
+    help="return the seed in the form of a uuid")
+
+
+passed_args = parser.parse_args()
+args = []
+kwargs = dict()
+func = seed.get_super_seed
+data = ""
+
+
+if passed_args.data:
+    data = "".join(passed_args.data)
+    if not passed_args.type:
+        passed_args.type = "hashed"
+        passed_args.hash_type = "md5"
+if passed_args.as_uuid:
+    kwargs["as_uuid"] = True
+if passed_args.type == "date":
+    func = seed.get_date_seed
+elif passed_args.type == "random":
+    func = seed.get_random_seed
+    kwargs["bits"] = passed_args.bits
+elif passed_args.type == "hashed":
+    if not data:
+        raise ValueError("The 'hashed' type requires a value for data")
+    func = seed.get_hashed_seed
+    args.append(data)
+    if passed_args.hash_type:
+        kwargs["hash_type"] = passed_args.hash_type
+elif passed_args.type == "super":
+    func = seed.get_super_seed
+
+
+print(func(*args, **kwargs))
