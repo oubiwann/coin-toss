@@ -23,7 +23,7 @@ With the seed, you can now do a coin toss::
   $ ./bin/toss 3641f821-6fb4-7d51-94e1-dce0e92f4571 Alice,Bob
   ['Bob']
 
-This also supports multi-way ties and multiple winners::
+``toss`` also supports multi-way ties and multiple winners::
 
   $ ./bin/toss 3641f821-6fb4-7d51-94e1-dce0e92f4571 Alice,Bob,Carol \
         --winner-count=2
