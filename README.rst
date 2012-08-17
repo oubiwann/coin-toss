@@ -57,9 +57,9 @@ officials only after a tie had been announced.
 An Election with a Tie
 -----------------------
 
-For instance, the election data itself could serve as the seed. If Alice and
-Bob are clear winners, but there is a tie for third between Carol and Dave, we
-could use the following data to generate a seed:
+Let's suppose we have an election where Alice and Bob are clear winners, but
+there is a tie for third between Carol and Dave. Eve comes in last. Let's say
+that the election data for the tied candidates is as follows:
 
 * Carol: loses to Alice by 40-47; loses to Bob by 38-45; beats Dave 41-40;
   loses to Eve 40-41
@@ -72,7 +72,7 @@ An Example Policy
 -----------------
 
 For such occasions, one could -- ahead of time! -- define a policy that would
-utilize this data to generate a seed where by tie-breaking coin-tosses could be
+utilize this data to generate a seed whereby tie-breaking coin-tosses could be
 verified by any election official.
 
 An example of this might be:
@@ -83,9 +83,9 @@ An example of this might be:
   candidates, this date-based seed should help in making a unique seed for
   breaking a possible future tie.
 
-* In the event of a tie, list the candidate scores in descending order. In this
-  example, we list the votes in candidate-name alphabetical order (Carol's
-  scores are first, then Dave's).
+* In the event of a tie, list the candidate scores in descending order (we've
+  sepearated each win/loss with a colon). In this example, we append the votes
+  in candidate-name alphabetical order (Carol's scores are first, then Dave's).
 
 * Using these known and unique (once combined) pieces of data, generate a new
   seed::
