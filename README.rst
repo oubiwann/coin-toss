@@ -68,8 +68,8 @@ Then define a policy for using this data. An example of this might be:
 * In alphabetical order of the candidate names, list the candidate scores in
   descending order.
 
-* Using these two known and (combined) unique pieces of data, generate a new
-  seed::
+* Using these two known and unique (once combined) pieces of data, generate a
+  new seed::
 
      $ ./bin/get_seed --as-uuid \
         --data=3641f821-6fb4-7d51-94e1-dce0e92f4571
