@@ -54,8 +54,8 @@ means of deriving the seed, based on information available to all the election
 officials only after a tie had been announced.
 
 
-An Example Policy
------------------
+An Election with a Tie
+-----------------------
 
 For instance, the election data itself could serve as the seed. If Alice and
 Bob are clear winners, but there is a tie for third between Carol and Dave, we
@@ -67,7 +67,15 @@ could use the following data to generate a seed:
 * Dave: loses to Alice 29-54; loses to Bob by 26-48; loses to Carol; 40-41;
   beats Eve 44-42
 
-Then define a policy for using this data. An example of this might be:
+
+An Example Policy
+-----------------
+
+For such occasions, one could -- ahead of time! -- define a policy that would
+utilize this data to generate a seed where by tie-breaking coin-tosses could be
+verified by any election official.
+
+An example of this might be:
 
 * Get the pre-announced seed. Ideally, this seed will be generated based on the
   timestamp of the election announcement. With the understanding that only one
