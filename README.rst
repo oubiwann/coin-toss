@@ -40,8 +40,12 @@ that a corrupt election official could generate seeds until one was obtained
 that broke the tie according to personal preference.
 
 
-Policy as Protection
---------------------
+Protection
+==========
+
+
+Avoiding Abuse with Policy
+--------------------------
 
 One way to mitigate this would be to announce ahead of time the seed or a
 means of deriving the seed, based on information available to all the election
