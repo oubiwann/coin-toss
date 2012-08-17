@@ -77,7 +77,7 @@ Then define a policy for using this data. An example of this might be:
         --data=29-54:26-48:40-41:44-42
      c1492281-a8d9-e6c5-03f8-992f9d5331f8
 
-With this new seed, one could then perform the coin-toss::
+* With this new seed, one could then perform the coin-toss::
 
-  $ ./bin/toss c1492281-a8d9-e6c5-03f8-992f9d5331f8 Carol,Dave
-  ['Dave']
+     $ ./bin/toss c1492281-a8d9-e6c5-03f8-992f9d5331f8 Carol,Dave
+     ['Dave']
