@@ -55,10 +55,10 @@ For instance, the election data itself could serve as the seed. If Alice and
 Bob are clear winners, but there is a tie for third between Carol and Dave, we
 could use the following data to generate a seed:
 
-* Carol: looses to Alice by 40-47; looses to Bob by 38-45; beats Dave 41-40;
-  looses to Eve 40-41
+* Carol: loses to Alice by 40-47; loses to Bob by 38-45; beats Dave 41-40;
+  loses to Eve 40-41
 
-* Dave: loses to Alice 29-54; looses to Bob by 26-48; loses to Carol; 40-41;
+* Dave: loses to Alice 29-54; loses to Bob by 26-48; loses to Carol; 40-41;
   beats Eve 44-42
 
 Then define a policy for using this data. An example of this might be:
