@@ -63,13 +63,18 @@ could use the following data to generate a seed:
 
 Then define a policy for using this data. An example of this might be:
 
-* Get the pre-announced seed.
+* Get the pre-announced seed. Ideally, this seed will be generated based on the
+  timestamp of the election announcement. With the understanding that only one
+  election will be announced at that microsecond with the given set of
+  candidates, this date-based seed should help in making a unique seed for
+  breaking a possible future tie.
 
-* In alphabetical order of the candidate names, list the candidate scores in
-  descending order.
+* In the event of a tie, list the candidate scores in descending order. In this
+  example, we list the votes in candidate-name alphabetical order (Carol's
+  scores are first, then Dave's).
 
-* Using these two known and unique (once combined) pieces of data, generate a
-  new seed::
+* Using these known and unique (once combined) pieces of data, generate a new
+  seed::
 
      $ ./bin/get_seed --as-uuid \
         --data=3641f821-6fb4-7d51-94e1-dce0e92f4571
