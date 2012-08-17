@@ -2,6 +2,8 @@
 coin-toss
 ~~~~~~~~~
 
+.. contents::
+   :local:
 
 Intent
 ======
