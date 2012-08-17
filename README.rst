@@ -2,15 +2,17 @@
 coin-toss
 ~~~~~~~~~
 
+
 Intent
-------
+======
 
 These scripts were created to assist with internet voting in the event of a
 tie, such that election officials could perform a verifiable, repeatable
 tie-breaking procedure: a remote coin toss.
 
+
 Usage
------
+=====
 
 First, you'll need to generate a seed that can be shared with anyone who will
 be verifying the coin toss::
@@ -29,16 +31,25 @@ With the seed, you can now do a coin toss::
         --winner-count=2
   ['Bob', 'Carol']
 
+
 Abuse
------
+=====
 
-When Steven Berler reviewed this, he noted that a corrupt election official
-could generate seeds until one was obtained that broke the tie according to
-personal preference.
+When a fellow employee at DreamHost (Steven Berler) reviewed this, he noted
+that a corrupt election official could generate seeds until one was obtained
+that broke the tie according to personal preference.
 
-One want to mitigate this would be to announce ahead of time the seed or a
+
+Policy as Protection
+--------------------
+
+One way to mitigate this would be to announce ahead of time the seed or a
 means of deriving the seed, based on information available to all the election
 officials only after a tie had been announced.
+
+
+An Example Policy
+-----------------
 
 For instance, the election data itself could serve as the seed. If Alice and
 Bob are clear winners, but there is a tie for third between Carol and Dave, we
@@ -65,3 +76,8 @@ Then define a policy for using this data. An example of this might be:
         --data=40-47:38-45:41-40:40-41
         --data=29-54:26-48:40-41:44-42
      c1492281-a8d9-e6c5-03f8-992f9d5331f8
+
+With this new seed, one could then perform the coin-toss::
+
+  $ ./bin/toss c1492281-a8d9-e6c5-03f8-992f9d5331f8 Carol,Dave
+  ['Dave']
