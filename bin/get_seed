@@ -11,8 +11,12 @@ parser.add_argument(
         "can be used multiple times (values will be concatenated)"))
 parser.add_argument(
     "-t", "--type", help=(
-        "the type of seed to generate; valid options are 'date' "
-        "'random', 'hashed', and 'super'"))
+        "the type of seed to generate; valid options are 'namespace', 'date' "
+        "'datestamp', 'random', 'hashed', and 'super'"))
+parser.add_argument(
+    "-n", "--namespace", help=(
+        "the namespace to use when creatig a namespace hash, e.g., "
+        "'myproject.org'; uses uuid5"))
 parser.add_argument(
     "--hash-type", help=(
         "the hash type to use when generating a hash-based seed; "
@@ -22,8 +26,9 @@ parser.add_argument(
     "--bits", help=(
         "the number of bits to use when generating a seed of type 'random'"))
 parser.add_argument(
-    "--as-uuid", action="store_true",
-    help="return the seed in the form of a uuid")
+    "--as-uuid", action="store_true", help=(
+        "return the seed in the form of a uuid; not needed for namespace "
+        "type"))
 
 
 passed_args = parser.parse_args()
@@ -40,8 +45,13 @@ if passed_args.data:
         passed_args.hash_type = "md5"
 if passed_args.as_uuid:
     kwargs["as_uuid"] = True
-if passed_args.type == "date":
+if passed_args.type == "namespace":
+    func = seed.get_namespace_seed
+    args = (passed_args.namespace, data)
+elif passed_args.type == "date":
     func = seed.get_date_seed
+elif passed_args.type == "datestamp":
+    func = seed.get_datestamp_seed
 elif passed_args.type == "random":
     func = seed.get_random_seed
     kwargs["bits"] = passed_args.bits
