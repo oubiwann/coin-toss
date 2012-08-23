@@ -91,8 +91,8 @@ An example of this might be:
   order (i.e., relationship to first-place winner is first score and
   relationship to last-place winner is the last score).
 
-* Using these known and unique (once combined) pieces of data, generate a new
-  seed::
+* Using these known and unique (once combined) pieces of data, generate the
+  seed that will be used in the coin toss::
 
      $ ./bin/get_seed \
         --type=namespace \
