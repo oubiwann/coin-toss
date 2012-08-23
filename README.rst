@@ -103,7 +103,7 @@ An example of this might be:
      52752184-527a-53b7-8472-8050d6b3643d
 
 * With this new seed, one could then perform the coin-toss, where names will be
-sorted by first name::
+  sorted by first name::
 
      $ ./bin/toss 52752184-527a-53b7-8472-8050d6b3643d Carol.Smith,Dave.Doe
      ['Dave.Doe']
