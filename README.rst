@@ -102,8 +102,8 @@ An example of this might be:
         --data=Dave.Doe:29-54:26-48:40-41:44-42
      52752184-527a-53b7-8472-8050d6b3643d
 
-* With this new seed, one could then perform the coin-toss, where names will be
-  sorted by first name::
+* Anyone that performs a coin-toss with this new seed will get the same result
+  (note that the names are passed in ascending order, sorted by first name)::
 
      $ ./bin/toss 52752184-527a-53b7-8472-8050d6b3643d Carol.Smith,Dave.Doe
      ['Dave.Doe']
