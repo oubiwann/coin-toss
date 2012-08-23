@@ -77,11 +77,12 @@ verified by any election official.
 
 An example of this might be:
 
-* Get the pre-announced seed. Ideally, this seed will be generated based on the
-  timestamp of the election announcement. With the understanding that only one
-  election will be announced at that microsecond with the given set of
-  candidates, this date-based seed should help in making a unique seed for
-  breaking a possible future tie.
+* Get the pre-announced seed. Ideally, this seed will be generated based on
+  something known ahead of time and can't be manipulated. For instance, the
+  starting date of the voting period. With the understanding that only one
+  election will be held on that day (or starting on that day) with the given
+  set of candidates, this date-based seed should help in making a unique seed
+  for breaking a possible future tie.
 
 * In the event of a tie, list the candidate scores in descending order (we've
   sepearated each win/loss with a colon). In this example, we append the votes
