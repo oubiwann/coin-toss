@@ -97,7 +97,8 @@ An example of this might be:
         --data=29-54:26-48:40-41:44-42
      c1492281-a8d9-e6c5-03f8-992f9d5331f8
 
-* With this new seed, one could then perform the coin-toss::
+* With this new seed, one could then perform the coin-toss, where names will be
+sorted by first name::
 
-     $ ./bin/toss c1492281-a8d9-e6c5-03f8-992f9d5331f8 Carol,Dave
-     ['Dave']
+     $ ./bin/toss c1492281-a8d9-e6c5-03f8-992f9d5331f8 Carol.Doe,Dave.Smith
+     ['Dave.Smith']
