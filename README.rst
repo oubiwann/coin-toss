@@ -84,9 +84,12 @@ An example of this might be:
   with the given set of candidates, this date-based seed should help in making
   a unique seed for breaking a possible future tie.
 
-* In the event of a tie, list the candidate scores in descending order (we've
-  sepearated each win/loss with a colon). In this example, we append the votes
-  in candidate-name alphabetical order (Carol's scores are first, then Dave's).
+* In the event of a tie, list the candidate scores in a predetermined order
+  (we've sepearated each win/loss with a colon). In this example, we append the
+  votes in candidate first-name alphabetical order (Carol's scores are first,
+  then Dave's). The vote scores for each tied candidate are listed in ranking
+  order (i.e., relationship to first-place winner is first score and
+  relationship to last-place winner is the last score).
 
 * Using these known and unique (once combined) pieces of data, generate a new
   seed::
@@ -95,12 +98,12 @@ An example of this might be:
         --type=namespace \
         --namespace=elections.example.org \
         --data=2012-08-21 \
-        --data=Carol.Doe:40-47:38-45:41-40:40-41 \
-        --data=Dave.Smith:29-54:26-48:40-41:44-42
-     0c48e705-4f20-5c60-8965-931cefe33f54
+        --data=Carol.Smith:40-47:38-45:41-40:40-41 \
+        --data=Dave.Doe:29-54:26-48:40-41:44-42
+     52752184-527a-53b7-8472-8050d6b3643d
 
 * With this new seed, one could then perform the coin-toss, where names will be
 sorted by first name::
 
-     $ ./bin/toss 0c48e705-4f20-5c60-8965-931cefe33f54 Carol.Doe,Dave.Smith
-     ['Dave.Smith']
+     $ ./bin/toss 52752184-527a-53b7-8472-8050d6b3643d Carol.Smith,Dave.Doe
+     ['Dave.Doe']
