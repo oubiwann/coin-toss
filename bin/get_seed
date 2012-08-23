@@ -12,7 +12,7 @@ parser.add_argument(
 parser.add_argument(
     "-t", "--type", help=(
         "the type of seed to generate; valid options are 'namespace', 'date' "
-        "'datestamp', 'random', 'hashed', and 'super'"))
+        "'datestamp', 'random', and 'hashed'"))
 parser.add_argument(
     "-n", "--namespace", help=(
         "the namespace to use when creatig a namespace hash, e.g., "
@@ -34,7 +34,7 @@ parser.add_argument(
 passed_args = parser.parse_args()
 args = []
 kwargs = dict()
-func = seed.get_super_seed
+func = seed.get_random_seed
 data = ""
 
 
@@ -62,8 +62,6 @@ elif passed_args.type == "hashed":
     args.append(data)
     if passed_args.hash_type:
         kwargs["hash_type"] = passed_args.hash_type
-elif passed_args.type == "super":
-    func = seed.get_super_seed
 
 
 print(func(*args, **kwargs))

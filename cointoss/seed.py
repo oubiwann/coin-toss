@@ -43,9 +43,3 @@ def get_hashed_seed(data, hash_type="sha512", as_uuid=False):
     if as_uuid:
         hashed = uuid.UUID(hashed)
     return str(hashed)
-
-
-def get_super_seed():
-    hashed = get_hashed_seed(
-        get_date_seed() + str(get_random_seed()), hash_type="md5")
-    return uuid.UUID(hashed)
