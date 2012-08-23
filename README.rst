@@ -79,10 +79,10 @@ An example of this might be:
 
 * Get the pre-announced seed. Ideally, this seed will be generated based on
   something known ahead of time and can't be manipulated. For instance, the
-  starting date of the voting period. With the understanding that only one
-  election will be held on that day (or starting on that day) with the given
-  set of candidates, this date-based seed should help in making a unique seed
-  for breaking a possible future tie.
+  starting date of the voting period (e.g., 2012-08-21). With the understanding
+  that only one election will be held on that day (or starting on that day)
+  with the given set of candidates, this date-based seed should help in making
+  a unique seed for breaking a possible future tie.
 
 * In the event of a tie, list the candidate scores in descending order (we've
   sepearated each win/loss with a colon). In this example, we append the votes
@@ -91,14 +91,16 @@ An example of this might be:
 * Using these known and unique (once combined) pieces of data, generate a new
   seed::
 
-     $ ./bin/get_seed --as-uuid \
-        --data=3641f821-6fb4-7d51-94e1-dce0e92f4571
-        --data=40-47:38-45:41-40:40-41
-        --data=29-54:26-48:40-41:44-42
-     c1492281-a8d9-e6c5-03f8-992f9d5331f8
+     $ ./bin/get_seed \
+        --type=namespace \
+        --namespace=elections.example.org \
+        --data=2012-08-21 \
+        --data=Carol.Doe:40-47:38-45:41-40:40-41 \
+        --data=Dave.Smith:29-54:26-48:40-41:44-42
+     0c48e705-4f20-5c60-8965-931cefe33f54
 
 * With this new seed, one could then perform the coin-toss, where names will be
 sorted by first name::
 
-     $ ./bin/toss c1492281-a8d9-e6c5-03f8-992f9d5331f8 Carol.Doe,Dave.Smith
+     $ ./bin/toss 0c48e705-4f20-5c60-8965-931cefe33f54 Carol.Doe,Dave.Smith
      ['Dave.Smith']
