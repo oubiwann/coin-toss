@@ -95,7 +95,6 @@ An example of this might be:
   seed that will be used in the coin toss::
 
      $ ./bin/get_seed \
-        --type=namespace \
         --namespace=elections.example.org \
         --data=2012-08-21 \
         --data=Carol.Smith:40-47:38-45:41-40:40-41 \
