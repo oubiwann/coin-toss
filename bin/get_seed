@@ -45,7 +45,7 @@ if passed_args.data:
         passed_args.hash_type = "md5"
 if passed_args.as_uuid:
     kwargs["as_uuid"] = True
-if passed_args.type == "namespace":
+if passed_args.type == "namespace" or hasattr(passed_args, "namespace"):
     func = seed.get_namespace_seed
     args = (passed_args.namespace, data)
 elif passed_args.type == "date":
